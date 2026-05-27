@@ -249,11 +249,11 @@ Smart Manufacturing · Educational Robotics · Healthcare Robotics
 
 ## 👩‍💻 Team
 
-| Name | Roll No | GitHub |
-|---|---|---|
-| Diya Sharma | 24BAC10047 | [@diyasharma22](https://github.com/diyasharma22) |
-| Eipshita Basuli | 24BAC10038 | — |
-| Richa Datta | 24BAC10073 | — |
+| Name | GitHub |
+|---|---|
+| Diya Sharma | [@diyasharma22](https://github.com/diyasharma22) |
+| Eipshita Basuli | — |
+| Richa Datta | — |
 
 **Institution:** VIT Bhopal University — B.Tech ECE (AI & Cybernetics)
 
