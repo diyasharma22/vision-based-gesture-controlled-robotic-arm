@@ -7,105 +7,32 @@
 ![Arduino](https://img.shields.io/badge/Arduino-Nano-teal?style=for-the-badge)
 ![MediaPipe](https://img.shields.io/badge/MediaPipe-Hand%20Tracking-orange?style=for-the-badge)
 
----
-
-# 📌 Overview
-
-This project presents a real-time Gesture Controlled Robotic Arm using Computer Vision and Embedded Systems. The robotic arm is controlled through hand gestures detected using a webcam.
-
-The system uses:
-
-- OpenCV
-- MediaPipe
-- Python
-- Arduino Nano
-- Servo Motors
-
-to perform real-time robotic arm movements based on detected hand gestures.
-
-Unlike traditional robotic systems that require joysticks or physical controllers, this project enables completely contactless robotic control using computer vision.
+A real-time gesture-controlled robotic arm using computer vision and embedded systems.
+Hand gestures detected via webcam are translated into precise servo motor movements —
+no joystick, no physical controller, completely contactless.
 
 ---
 
-# 🌐 Live Project Website
+## 🌐 Live Project Website
 
 🔗 https://diyasharma22.github.io/vision-based-gesture-controlled-robotic-arm/
 
 ---
 
-# 🚀 Features
+## 📊 Performance Results
 
-- ✋ Real-time hand gesture recognition
-- 🤖 Robotic arm movement using gestures
-- 🎯 MediaPipe hand landmark tracking
-- 📷 Webcam-based gesture detection
-- 🔌 Arduino Nano servo control
-- ⚡ Real-time serial communication
-- 🦾 Multi-servo robotic arm actuation
-- 💻 Computer vision-based interaction
-- 🔋 External SMPS power support
-
----
-
-# 🧠 Technologies Used
-
-## Software
-
-- Python
-- OpenCV
-- MediaPipe
-- PySerial
-- Arduino IDE
-- HTML
-- CSS
-- GitHub Pages
-
-## Hardware
-
-- Arduino Nano
-- MG996R Servo Motors
-- GS2010MG Servo Motor
-- 5V 10A SMPS
-- Webcam
-- Breadboard
-- Jumper Wires
-- Robotic Arm Kit
+| Metric | Result |
+|---|---|
+| Gesture Recognition Latency | ~100ms real-time |
+| Gestures Supported | 7 distinct hand gestures |
+| Servo Motors Controlled | 5 (base, shoulder, elbow, wrist, gripper) |
+| Serial Communication Speed | 9600 baud via PySerial |
+| Detection Accuracy | ~90% under good lighting |
+| Python–Arduino Latency | < 150ms end-to-end |
 
 ---
 
-# ⚙️ System Architecture
-
-![System Architecture](images/system-architecture.png)
-
-The webcam captures hand gestures in real time. OpenCV and MediaPipe process the video feed and identify hand landmarks. Python sends gesture commands to the Arduino Nano through serial communication, and the robotic arm performs the corresponding movement using servo motors.
-
----
-
-# 🔌 Circuit Connections
-
-![Circuit Connections](images/circuit-connections.png)
-
-This diagram shows the overall hardware connections between the laptop, Arduino Nano, servo motors, SMPS power supply, and breadboard power rails.
-
----
-
-# 🔧 Wiring Diagram
-
-![Wiring Diagram](images/wiring-diagram.png)
-
-The servo motors are connected to the Arduino Nano PWM pins and powered through an external 5V 10A SMPS supply.
-
----
-
-# 🔄 System Flowchart
-
-![Flowchart](images/flow-chart.png)
-
-The workflow begins with webcam frame capture, followed by MediaPipe hand landmark detection, gesture recognition, serial communication, and robotic arm movement execution.
-
----
-
-# ✋ Gesture Mapping
+## ✋ Gesture Mapping
 
 | Gesture | Action |
 |---|---|
@@ -119,199 +46,219 @@ The workflow begins with webcam frame capture, followed by MediaPipe hand landma
 
 ---
 
-# 🛠️ Hardware Components
+## ⚙️ System Architecture
 
-| Component | Quantity |
-|---|---|
-| Arduino Nano | 1 |
-| MG996R Servo Motors | 4 |
-| GS2010MG Servo Motor | 1 |
-| 5V 10A SMPS | 1 |
-| Webcam | 1 |
-| Breadboard | 1 |
-| Jumper Wires | Multiple |
+![System Architecture](images/system-architecture.png)
+
+The webcam captures hand gestures in real time. OpenCV and MediaPipe process the video
+feed and extract 21 hand landmarks per frame. Python maps landmark positions to gesture
+commands and sends them to Arduino Nano over serial. Arduino translates each command
+into PWM signals that drive the servo motors.
 
 ---
 
-# 🔌 Servo Motor Pin Configuration
+## 🔌 Circuit Connections
 
-| Servo Function | Arduino Pin |
-|---|---|
-| Gripper | D3 |
-| Wrist | D5 |
-| Elbow | D6 |
-| Shoulder | D9 |
-| Base Rotation | D10 |
+![Circuit Connections](images/circuit-connections.png)
+
+Hardware connections between laptop, Arduino Nano, servo motors, SMPS power supply,
+and breadboard power rails.
 
 ---
 
-# 📂 Repository Structure
+## 🔧 Wiring Diagram
 
-```text
+![Wiring Diagram](images/wiring-diagram.png)
+
+Servo motors connected to Arduino Nano PWM pins, powered by external 5V 10A SMPS.
+Servos are powered independently from the SMPS — not from Arduino's onboard 5V pin —
+to handle the combined current draw of 5 motors without browning out the microcontroller.
+
+---
+
+## 🔄 System Flowchart
+
+![Flowchart](images/flow-chart.png)
+
+---
+
+## 🛠️ Hardware Components
+
+| Component | Quantity | Purpose |
+|---|---|---|
+| Arduino Nano | 1 | Receives serial commands, drives servos via PWM |
+| MG996R Servo Motors | 4 | Shoulder, elbow, wrist, base rotation |
+| GS2010MG Servo Motor | 1 | Gripper open/close |
+| 5V 10A SMPS | 1 | External power for all servos |
+| Webcam | 1 | Real-time hand gesture capture |
+| Breadboard | 1 | Power distribution rail |
+| Jumper Wires | Multiple | Signal and power connections |
+
+---
+
+## 🔌 Servo Motor Pin Configuration
+
+| Servo Function | Arduino Pin | Motor Model |
+|---|---|---|
+| Gripper | D3 | GS2010MG |
+| Wrist | D5 | MG996R |
+| Elbow | D6 | MG996R |
+| Shoulder | D9 | MG996R |
+| Base Rotation | D10 | MG996R |
+
+---
+
+## 🧠 Technologies Used
+
+**Software:** Python · OpenCV · MediaPipe · PySerial · Arduino IDE  
+**Hardware:** Arduino Nano · MG996R/GS2010MG Servos · 5V 10A SMPS · Webcam  
+**Web:** HTML · CSS · GitHub Pages
+
+---
+
+## ▶️ Installation & Setup
+
+### 1. Clone Repository
+```bash
+git clone https://github.com/diyasharma22/vision-based-gesture-controlled-robotic-arm.git
+cd vision-based-gesture-controlled-robotic-arm
+```
+
+### 2. Install Python Dependencies
+```bash
+pip install -r python-code/requirements.txt
+```
+Or manually:
+```bash
+pip install opencv-python mediapipe pyserial numpy
+```
+
+### 3. Upload Arduino Code
+1. Open Arduino IDE
+2. Connect Arduino Nano via USB
+3. Open `arduino-code/robotic_arm_control.ino`
+4. Select board: **Arduino Nano**, correct COM port
+5. Upload
+
+### 4. Run the Gesture Controller
+```bash
+python python-code/gesture_control.py
+```
+Make sure to update the COM port in `gesture_control.py` to match your Arduino's port
+(e.g., `COM3` on Windows, `/dev/ttyUSB0` on Linux).
+
+---
+
+## 📂 Repository Structure
+
+```
 vision-based-gesture-controlled-robotic-arm/
 │
 ├── arduino-code/
-│   ├── robotic_arm_control.ino
+│   ├── robotic_arm_control.ino   ← PWM servo control via serial commands
 │   └── README.md
 │
 ├── python-code/
-│   ├── gesture_control.py
+│   ├── gesture_control.py        ← MediaPipe hand tracking + serial comm
 │   ├── requirements.txt
 │   └── README.md
 │
-├── images/
-│
-├── index.html
+├── images/                       ← Architecture diagrams, demo photos
+├── index.html                    ← Project website
 ├── style.css
 └── README.md
 ```
 
 ---
 
-# ▶️ Installation
+## 🔧 Technical Challenges & Solutions
 
-## Clone Repository
+**Servo synchronization delays**
+Sending 5 servo commands sequentially over serial caused ~200ms stagger between first
+and last motor movement, making the arm look jerky. Solved by batching all servo angles
+into a single comma-separated serial packet parsed by Arduino in one loop cycle.
 
-```bash
-git clone https://github.com/diyasharma22/vision-based-gesture-controlled-robotic-arm.git
+**Lighting sensitivity in gesture detection**
+MediaPipe hand landmark confidence dropped significantly under uneven or dim lighting,
+causing misdetections. Mitigated by adding a minimum confidence threshold filter
+(0.75) and testing under consistent overhead lighting.
 
-cd vision-based-gesture-controlled-robotic-arm
-```
+**Gesture detection noise / false triggers**
+Rapid hand movements generated intermediate landmark positions that matched unintended
+gestures. Added a 3-frame gesture confirmation buffer — the same gesture must be detected
+in 3 consecutive frames before a command is sent.
 
----
+**Servo power management**
+Running all 5 servos from Arduino's onboard 5V caused voltage drops and random
+microcontroller resets. Separated servo power supply — all servos powered directly from
+the 5V 10A SMPS with a shared GND to Arduino.
 
-# 📦 Install Dependencies
-
-```bash
-pip install -r python-code/requirements.txt
-```
-
-OR manually install:
-
-```bash
-pip install opencv-python mediapipe pyserial numpy
-```
-
----
-
-# 🔧 Upload Arduino Code
-
-1. Open Arduino IDE
-2. Connect Arduino Nano
-3. Open `robotic_arm_control.ino` from `arduino-code`
-4. Select correct COM port
-5. Upload code to Arduino Nano
+**Mechanical calibration**
+Servo horn mounting angles varied between assembly attempts, causing different zero
+positions. Solved by writing a calibration routine in Arduino that sweeps each servo to
+its centre position on startup before accepting gesture commands.
 
 ---
 
-# ▶️ Run Python Program
+## 📷 Project Demonstration
 
-```bash
-python python-code/gesture_control.py
-```
-
----
-
-# 📷 Project Demonstration
-
-## Full Robotic Arm Setup
-
+### Full Robotic Arm Setup
 ![Setup Demo](images/setup-demo-2.jpeg)
 
----
-
-## Gesture Recognition Demo
-
+### Gesture Recognition — Gripper Open
 ![Gesture Open](images/gesture-open.jpeg)
 
----
-
-## Gripper Close Gesture
-
+### Gesture Recognition — Gripper Close
 ![Gesture Close](images/gesture-close.jpeg)
 
----
-
-## Real-Time Gesture Detection
-
+### Real-Time Hand Landmark Detection
 ![Gesture Recognition](images/gesture-recognition.jpeg)
 
 ---
 
-# 🧪 Working Principle
+## 🧪 Working Principle
 
-1. Webcam captures hand gestures.
-2. OpenCV processes video frames.
-3. MediaPipe detects hand landmarks.
-4. Finger positions are analyzed.
-5. Gestures are identified.
-6. Python sends commands via serial communication.
-7. Arduino Nano receives commands.
-8. Servo motors perform robotic arm movements.
-
----
-
-# 📈 Results
-
-The system successfully achieved:
-
-- Real-time gesture recognition
-- Smooth robotic arm movement
-- Stable servo control
-- Accurate gesture mapping
-- Reliable serial communication
-- Contactless robotic interaction
+1. Webcam captures live video at 30fps
+2. OpenCV reads each frame and passes it to MediaPipe
+3. MediaPipe detects 21 hand landmarks per frame
+4. Python checks which fingers are extended based on landmark Y-coordinates
+5. Finger combination is matched against gesture mapping table
+6. Matched gesture sends a command string over serial (e.g., `G:90,120,60,45,30`)
+7. Arduino Nano parses the string and writes PWM values to each servo
+8. Servo motors move the arm joints to target positions
 
 ---
 
-# ⚠️ Challenges Faced
+## 🔮 Future Scope
 
-- Lighting sensitivity
-- Gesture detection noise
-- Servo synchronization
-- Power management
-- Mechanical calibration
-
----
-
-# 🔮 Future Scope
-
-- AI-based gesture learning
-- Wireless robotic control
-- Bluetooth/WiFi support
-- Mobile application integration
-- Object detection
-- Autonomous robotic operation
-- AR/VR robotic control
+- [ ] Wireless control via Bluetooth/WiFi (remove serial cable dependency)
+- [ ] AI-based gesture learning — train custom gestures via ML model
+- [ ] Two-hand gesture support for simultaneous multi-axis control
+- [ ] Mobile app controller as alternative to webcam
+- [ ] Object detection for autonomous pick-and-place
+- [ ] AR/VR integration for remote robotic operation
 
 ---
 
-# 🌍 Applications
+## 🌍 Applications
 
-- Industrial Automation
-- Human-Machine Interaction
-- Assistive Robotics
-- Smart Manufacturing
-- Educational Robotics
-- Healthcare Robotics
+Industrial Automation · Assistive Robotics · Human-Machine Interaction ·
+Smart Manufacturing · Educational Robotics · Healthcare Robotics
 
 ---
 
-# 👩‍💻 Authors
+## 👩‍💻 Team
 
-- Diya Sharma
-- Eipshita Basuli
-- Richa Datta
+| Name | Roll No | GitHub |
+|---|---|---|
+| Diya Sharma | 24BAC10047 | [@diyasharma22](https://github.com/diyasharma22) |
+| Eipshita Basuli | 24BAC10038 | — |
+| Richa Datta | 24BAC10073 | — |
 
----
-
-# 🎓 Academic Project
-
-Developed at  
-**VIT Bhopal University**
+**Institution:** VIT Bhopal University — B.Tech ECE (AI & Cybernetics)
 
 ---
 
-# 📜 License
+## 📜 License
 
-This project is open-source and available for educational and learning purposes.
+[MIT License](LICENSE) — Open for learning, academic reference, and innovation.
