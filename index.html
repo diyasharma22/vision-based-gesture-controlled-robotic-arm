@@ -6,21 +6,28 @@
     <title>Vision-Based Gesture Controlled Robotic Arm</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <header>
         <h1>Vision-Based Gesture Controlled Robotic Arm</h1>
+
         <p>
             A robotic arm controlled using real-time hand gesture recognition
             with OpenCV, MediaPipe, Python, and Arduino Nano.
         </p>
+
+        <img src="images/system-architecture.png" alt="Project Image" class="hero-image">
     </header>
 
     <section class="section">
         <h2>Project Overview</h2>
+
         <p>
             This project uses computer vision and hand tracking to control
             a robotic arm through natural hand gestures without any wearable devices.
+            The system detects hand landmarks using MediaPipe and translates
+            gestures into robotic arm movements through Arduino Nano and servo motors.
         </p>
     </section>
 
@@ -34,6 +41,8 @@
             <div class="card">Arduino Nano</div>
             <div class="card">Servo Motors</div>
             <div class="card">Computer Vision</div>
+            <div class="card">PySerial</div>
+            <div class="card">Embedded Systems</div>
         </div>
     </section>
 
@@ -46,6 +55,9 @@
             <li>Serial communication using PySerial</li>
             <li>Servo motor actuation</li>
             <li>Contactless human-machine interaction</li>
+            <li>Vision-based gesture tracking</li>
+            <li>Arduino Nano motor control</li>
+            <li>Multi-servo robotic movement</li>
         </ul>
     </section>
 
@@ -74,6 +86,11 @@
             </tr>
 
             <tr>
+                <td>Index + Pinky</td>
+                <td>Arm Down</td>
+            </tr>
+
+            <tr>
                 <td>Three Fingers</td>
                 <td>Rotate Right</td>
             </tr>
@@ -88,6 +105,29 @@
                 <td>Reset All Motors</td>
             </tr>
         </table>
+    </section>
+
+    <section class="section">
+        <h2>Project Gallery</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <img src="images/gesture-recognition.jpeg" alt="Gesture Recognition" width="100%">
+                <p>Gesture Recognition</p>
+            </div>
+
+            <div class="card">
+                <img src="images/wiring-diagram.png" alt="Wiring Diagram" width="100%">
+                <p>Wiring Diagram</p>
+            </div>
+
+            <div class="card">
+                <img src="images/circuit-connections.png" alt="Circuit Connections" width="100%">
+                <p>Circuit Connections</p>
+            </div>
+
+        </div>
     </section>
 
     <footer>
