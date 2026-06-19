@@ -7,9 +7,11 @@
 ![Arduino](https://img.shields.io/badge/Arduino-Nano-teal?style=for-the-badge)
 ![MediaPipe](https://img.shields.io/badge/MediaPipe-Hand%20Tracking-orange?style=for-the-badge)
 
-A real-time gesture-controlled robotic arm using computer vision and embedded systems.
+**A real-time gesture-controlled robotic arm using computer vision and embedded systems.
 Hand gestures detected via webcam are translated into precise servo motor movements —
 no joystick, no physical controller, completely contactless.
+
+Achieved ~100ms gesture recognition latency and ~90% accuracy across 7 gestures using a 3-frame confirmation buffer (Python, OpenCV, MediaPipe).**
 
 ---
 
